@@ -1,2 +1,41 @@
 package edu.washington.zlin2016.quizdroid
 
+import android.support.v7.util.DiffUtil
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import kotlinx.android.synthetic.main.quiz_item.view.*
+
+
+class QuizRecyclerAdapter(var quizes:Array<Quiz>) : RecyclerView.Adapter<QuizRecyclerAdapter.QuizViewHolder>(){
+
+    var onQuizClickedListener: ((position: Int, name: String) -> Unit)? = null
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewHolderType: Int): QuizViewHolder =
+        QuizViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.quiz_item, parent, false))
+
+
+    override fun getItemCount(): Int = quizes.size
+
+    override fun onBindViewHolder(viewHolder: QuizViewHolder, position: Int) {
+        viewHolder.bindView(quizes[position].title, position)
+    }
+
+    inner class QuizViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindView(personName: String, position: Int) {
+            itemView.quizName.text = personName
+            itemView.setOnClickListener { onQuizClickedListener?.invoke(position, personName) }
+        }
+    }
+
+//    fun updateList(newListOfNames: List<String>) {
+//
+//        val diffCallback = NameDiffCallback(this.quizes, newListOfNames)
+//        val diffResult = DiffUtil.calculateDiff(diffCallback)
+//        diffResult.dispatchUpdatesTo(this)
+//
+//        this.quizes = newListOfNames
+//    }
+
+}
