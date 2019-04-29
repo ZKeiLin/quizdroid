@@ -1,15 +1,17 @@
 package edu.washington.zlin2016.quizdroid
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.Serializable
 
 
 
 class MainActivity : AppCompatActivity() {
-
 
     private val math = Quiz(title="Math",
         desc = "Did you pass the third grade?",
@@ -66,7 +68,10 @@ class MainActivity : AppCompatActivity() {
         quizRecyclerView.setHasFixedSize(true)
 
         adapter.onQuizClickedListener = { position, name ->
-            Toast.makeText(this, "$name clicked!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, QuizIntroActivity::class.java)
+            intent.putExtra("quiz", quizes[position])
+            startActivity(intent)
+//            Toast.makeText(this, "$name clicked!", Toast.LENGTH_SHORT).show()
         }
 
 
@@ -77,6 +82,6 @@ class MainActivity : AppCompatActivity() {
 }
 
 
-class Quiz(val title:String, val desc: String, val questions : Array<Question>)
+class Quiz (val title:String, val desc: String, val questions : Array<Question>) : Serializable
 
-class Question(val text: String, val answers: Array<String>, val answer: Int)
+class Question(val text: String, val answers: Array<String>, val answer: Int) : Serializable
