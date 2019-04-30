@@ -13,22 +13,37 @@ import java.io.Serializable
 
 class MainActivity : AppCompatActivity() {
 
+
+    private val physics = Quiz(title="Physics",
+        desc = "Because Physics!",
+        questions = arrayOf(
+            Question(text = "What is fire?",
+                answer = 0,
+                answers= arrayOf(
+                    "One of the four classical elements",
+                    "A magical reaction given to us by God",
+                    "A band that hasn't yet been discovered",
+                    "Fire! Fire! Fire! heh-heh"
+                )
+            )))
+
     private val math = Quiz(title="Math",
         desc = "Did you pass the third grade?",
         questions = arrayOf(
-            Question(text = "What is 2+2?", answer = 1, answers= arrayOf(
+            Question(text = "What is 2+2?", answer = 0, answers= arrayOf(
                 "4",
                 "22",
                 "An irrational number",
                 "Nobody knows"
             )
         )))
+
     private val marvel = Quiz(title="Marvel Super Heroes",
         desc = "Avengers, Assemble!",
         questions = arrayOf(
             Question(
                 text = "Who is Iron Man?",
-                answer = 1,
+                answer = 0,
                 answers= arrayOf(
                     "Tony Stark",
                     "Obadiah Stane",
@@ -38,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             ),
             Question(
                 text = "Who founded the X-Men?",
-                answer = 2,
+                answer = 1,
                 answers= arrayOf(
                     "Tony Stark",
                     "Professor X",
@@ -48,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             ),
             Question(
                 text = "How did Spider-Man get his powers?",
-                answer = 1,
+                answer = 0,
                 answers= arrayOf(
                     "He was bitten by a radioactive spider",
                     "He ate a radioactive spider",
@@ -58,7 +73,8 @@ class MainActivity : AppCompatActivity() {
             )
         )
     )
-    private val quizes = arrayOf(marvel, math)
+
+    private val quizes = arrayOf(marvel, math, physics)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,14 +87,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, QuizIntroActivity::class.java)
             intent.putExtra("quiz", quizes[position])
             startActivity(intent)
-//            Toast.makeText(this, "$name clicked!", Toast.LENGTH_SHORT).show()
         }
-
-
     }
-
-
-
 }
 
 

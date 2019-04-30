@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center">
+
+    <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="75dp" android:id="@+id/userAns" android:textAlignment="center"
+            android:gravity="center"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="51dp" android:id="@+id/correctAns" android:textAlignment="center"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="86dp" android:id="@+id/ratio" android:textAlignment="center"/>
+    <Button
+            android:text="Next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/next" android:visibility="visible"/>
+</LinearLayout>
