@@ -17,8 +17,8 @@ class QuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
         var position = intent.getIntExtra("position", 0)
-        var quiz = getIntent().getExtras().getSerializable("quiz") as? Quiz
-        var quesList = quiz!!.questions
+        val quiz = getIntent().getExtras().getSerializable("quiz") as? Quiz
+        val quesList = quiz!!.questions
         var correctCount = intent.getIntExtra("correctCount", 0)
         var curQuestion = quesList!![position]
         question.text = curQuestion.text
