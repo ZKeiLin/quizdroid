@@ -9,6 +9,7 @@ import android.widget.RadioButton
 import kotlinx.android.synthetic.main.activity_quiz.*
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_answer.view.*
+import android.widget.RadioGroup
 
 
 class QuizActivity : AppCompatActivity() {
@@ -34,8 +35,13 @@ class QuizActivity : AppCompatActivity() {
             ansOptions.addView(radioButton)
         }
 
+        ansOptions.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
+            submit.visibility = View.VISIBLE
+        })
+
         submit.setOnClickListener{
             if(ansOptions.getCheckedRadioButtonId() != -1){
+
                 val intent = Intent(this, AnswerActivity::class.java)
 
                 intent.putExtra("input", ansOptions.getCheckedRadioButtonId())

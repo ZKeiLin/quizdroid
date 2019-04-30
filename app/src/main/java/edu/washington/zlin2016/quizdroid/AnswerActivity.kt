@@ -14,9 +14,7 @@ class AnswerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_answer)
-//        if(savedInstanceState != null){
-//            correctCount = savedInstanceState.getInt("correctCount")
-//        }
+
 
         val quiz = getIntent().getExtras().getSerializable("quiz") as? Quiz
         val position = getIntent().getIntExtra("curpos", 0 )
@@ -26,9 +24,11 @@ class AnswerActivity : AppCompatActivity() {
         var correctCount = getIntent().getIntExtra("correctCount", 0)
         val total = quiz!!.questions.size
 
-
         if (userInput == correct){
             correctCount = correctCount+1
+            corIndicator.text = "Correct!"
+        }else{
+            corIndicator.text = "Oops!"
         }
 
         userAns.text = "Your Selection:  "+ quiz!!.questions[position].answers[userInput]
@@ -54,18 +54,4 @@ class AnswerActivity : AppCompatActivity() {
             }
         }
     }
-
-//    override fun onSaveInstanceState(outState: Bundle) {
-//        super.onSaveInstanceState(outState)
-//        outState.putInt("correctCount", 0)
-//        outState.putString("quizName", "")
-//    }
-//
-//    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-//        super.onRestoreInstanceState(savedInstanceState)
-//        correctCount = savedInstanceState?.getInt("correctCount") ?:0
-////        corr.setText(userText)
-//
-//    }
-
 }

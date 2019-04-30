@@ -27,8 +27,6 @@ class QuizIntroActivity : AppCompatActivity() {
             intent.putExtra("correctCount", 0)
             startActivity(intent)
         }
-
     }
-
 
 }

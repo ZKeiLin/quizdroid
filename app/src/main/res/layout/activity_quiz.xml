@@ -6,7 +6,6 @@
               android:gravity="center">
 
     <TextView
-            android:text="TextView"
             android:layout_width="match_parent"
             android:layout_height="86dp" android:id="@+id/question" android:textAlignment="center"/>
     <RadioGroup
@@ -17,7 +16,8 @@
             android:id="@+id/ansOptions">
     </RadioGroup>
     <Button
-            android:text="Submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/submit" android:visibility="visible"/>
+            android:text="@string/submit"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" android:id="@+id/submit" android:visibility="invisible"
+            android:background="@color/colorAccent" android:textColor="@android:color/white"/>
 </LinearLayout>

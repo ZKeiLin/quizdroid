@@ -29,13 +29,4 @@ class QuizRecyclerAdapter(var quizes:Array<Quiz>) : RecyclerView.Adapter<QuizRec
         }
     }
 
-//    fun updateList(newListOfNames: List<String>) {
-//
-//        val diffCallback = NameDiffCallback(this.quizes, newListOfNames)
-//        val diffResult = DiffUtil.calculateDiff(diffCallback)
-//        diffResult.dispatchUpdatesTo(this)
-//
-//        this.quizes = newListOfNames
-//    }
-
 }
