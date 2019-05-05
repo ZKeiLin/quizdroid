@@ -7,10 +7,15 @@
               android:orientation="vertical"
               tools:context=".MainActivity">
 
-        <android.support.v7.widget.RecyclerView
-                android:id="@+id/quizRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="550dp"
-                app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
+        <!--<android.support.v7.widget.RecyclerView-->
+                <!--android:id="@+id/quizRecyclerView1"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="550dp"-->
+                <!--app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>-->
+
+        <fragment
+                android:name="edu.washington.zlin2016.quizdroid.QuizListFragment"
+                android:id="@+id/quizRecyclerViewFragment"
+                android:layout_width="match_parent" android:layout_height="match_parent" />
 
 </LinearLayout>

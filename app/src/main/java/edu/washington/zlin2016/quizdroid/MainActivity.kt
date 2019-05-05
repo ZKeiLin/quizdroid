@@ -17,14 +17,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val adapter = QuizRecyclerAdapter(quizes)
-        quizRecyclerView.adapter = adapter
-        quizRecyclerView.setHasFixedSize(true)
-
-        adapter.onQuizClickedListener = { position, name ->
-            val intent = Intent(this, QuizIntroActivity::class.java)
-            intent.putExtra("quiz", quizes[position])
-            startActivity(intent)
-        }
+//        val adapter = QuizRecyclerAdapter(quizes)
+//        quizRecyclerView1.adapter = adapter
+//        quizRecyclerView1.setHasFixedSize(true)
+//
+//        adapter.onQuizClickedListener = { position, name ->
+//            val intent = Intent(this, QuizIntroActivity::class.java)
+//            intent.putExtra("quiz", quizes[position])
+//            startActivity(intent)
+//        }
     }
 }
