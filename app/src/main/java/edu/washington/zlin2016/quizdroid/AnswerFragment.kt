@@ -1,7 +1,5 @@
 package edu.washington.zlin2016.quizdroid
 
-
-import android.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -40,9 +38,9 @@ class AnswerFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_answer, container, false)
 
         arguments?.let {
-            var position = it.getInt("position") as Int
-            val selected = it.getInt("selected") as Int
-            var correctCount = it.getInt("correctCount") as Int
+            var position = it.getInt("position")
+            val selected = it.getInt("selected")
+            var correctCount = it.getInt("correctCount")
             val quiz = it.getParcelable("quiz") as Quiz
             val question = quiz.questions[position]
             val answer = question.answer
@@ -58,8 +56,6 @@ class AnswerFragment : Fragment() {
 
             rootView.findViewById<TextView>(R.id.userAns).text = "Your Selection:  "+ question.answers[selected]
             rootView.findViewById<TextView>(R.id.correctAns).text = "Correct Answer :  "+  question.answers[answer]
-            rootView.findViewById<TextView>(R.id.ratio).text = "You won "+ correctCount + " of  "+ total
-
             rootView.findViewById<TextView>(R.id.ratio).text = "You won "+ correctCount + " of  "+ total
 
             val next = rootView.findViewById<TextView>(R.id.next)

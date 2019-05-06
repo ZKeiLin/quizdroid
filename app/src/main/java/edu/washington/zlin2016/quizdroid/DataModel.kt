@@ -1,6 +1,5 @@
 package edu.washington.zlin2016.quizdroid
 
-import java.io.Serializable
 import kotlinx.android.parcel.Parcelize
 import android.os.Parcelable
 
