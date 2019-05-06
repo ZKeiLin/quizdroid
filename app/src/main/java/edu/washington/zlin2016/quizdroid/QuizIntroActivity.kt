@@ -19,26 +19,7 @@ class QuizIntroActivity : AppCompatActivity(){
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, quiz_intro, "QUIZ_INTRO_FRAGMENT")
             .commit()
-//
-//
-//        start.setOnClickListener{
-//            Log.i("press Button", "presssssssss")
-//            this.StartOnClick(quiz.questions, 0)
-////            val intent = Intent(this, QuizActivity::class.java)
-////            intent.putExtra("quiz", quiz)
-////            intent.putExtra("position", 0)
-////            intent.putExtra("correctCount", 0)
-////            startActivity(intent)
-//        }
     }
-
-//    override fun StartOnClick(questions: Array<Question>, position: Int) {
-//        val quizDetail = QuizDetailFragment.newInstance(questions, position)
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.container, quizDetail, "QUIZ_DETAIL_FRAGMENT")
-//            .commit()
-//    }
-
 
 }
 

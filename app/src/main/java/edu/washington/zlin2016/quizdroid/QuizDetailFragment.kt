@@ -12,15 +12,15 @@ import kotlinx.android.synthetic.main.fragment_quiz_detail.*
 
 class QuizDetailFragment : Fragment() {
 
-    private var position = 0
 
     companion object {
         val  QUESTION_PARCEL_KEY= "questions_parcel"
 
-        fun newInstance(quiz: Quiz, position:Int): QuizDetailFragment {
+        fun newInstance(quiz: Quiz, position:Int, correctCount:Int): QuizDetailFragment {
             val args = Bundle().apply {
                 putParcelable(QUESTION_PARCEL_KEY, quiz)
                 putInt("position", position)
+                putInt("correctCount", correctCount)
             }
 
             val fragment = QuizDetailFragment().apply {
@@ -36,9 +36,10 @@ class QuizDetailFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_quiz_detail, container, false)
 
         arguments?.let {
-            position = it.getInt("position")
+            val position = it.getInt("position")
             val quiz = it.getParcelable(QuizDetailFragment.QUESTION_PARCEL_KEY) as Quiz
             val questions = quiz.questions
+            val correctCount = it.getInt("correctCount")
 
             questions.let {
                 val question = questions[position]
@@ -64,33 +65,12 @@ class QuizDetailFragment : Fragment() {
                 rootView.findViewById<Button>(R.id.submit).setOnClickListener{
                     val selected = ansOptions.getCheckedRadioButtonId()
                     if(selected != -1){
-                        val answerFrag = AnswerFragment.newInstance(position, selected, quiz)
+                        val answerFrag = AnswerFragment.newInstance(position, selected, quiz, correctCount)
                         activity?.supportFragmentManager!!.beginTransaction()
                             .replace(R.id.container, answerFrag, "ANSWER_FRAGMENT")
                             .commit()
                     }
                 }
-
-
-
-
-
-//                    setOnClickListener{
-//                    val answerFrag = AnswerFragment.newInstance(quiz)
-//                    activity?.supportFragmentManager!!.beginTransaction()
-//                        .replace(R.id.container, answerFrag, "ANSWER_FRAGMENT")
-//                        .commit()
-//                    if(position + 1 < questions.size){
-//                        val quizDetail = QuizDetailFragment.newInstance(questions, position)
-//                        activity?.supportFragmentManager!!.beginTransaction()
-//                            .replace(R.id.container, quizDetail, "QUIZ_DETAIL_FRAGMENT")
-//                            .commit()
-//                    }
-//                    val answerFrag = AnswerFragment.newInstance()
-//                    activity?.supportFragmentManager!!.beginTransaction()
-//                        .replace(R.id.container, quizDetail, "QUIZ_DETAIL_FRAGMENT")
-//                        .commit()
-
             }
         }
 

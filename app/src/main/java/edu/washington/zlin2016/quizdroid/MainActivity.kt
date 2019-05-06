@@ -26,12 +26,4 @@ class MainActivity : AppCompatActivity(){
             startActivity(intent)
         }
     }
-
-
-//    override fun OnQuizSelected(quiz: Quiz) {
-//        val quiz_intro = QuizIntroFragment.newInstance(quiz)
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.container, quiz_intro, "QUIZ_INTRO_FRAGMENT")
-//            .commit()
-//    }
 }

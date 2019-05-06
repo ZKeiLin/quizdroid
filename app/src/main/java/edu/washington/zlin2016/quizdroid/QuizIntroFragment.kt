@@ -41,7 +41,7 @@ class QuizIntroFragment : Fragment() {
             }
 
             rootView.findViewById<Button>(R.id.start).setOnClickListener{
-                val quizDetail = QuizDetailFragment.newInstance(quiz, 0)
+                val quizDetail = QuizDetailFragment.newInstance(quiz, 0, 0)
                 activity?.supportFragmentManager!!.beginTransaction()
                     .replace(R.id.container, quizDetail, "QUIZ_DETAIL_FRAGMENT")
                     .commit()
