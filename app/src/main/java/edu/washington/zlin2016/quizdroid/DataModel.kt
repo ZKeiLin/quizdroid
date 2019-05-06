@@ -1,7 +1,8 @@
 package edu.washington.zlin2016.quizdroid
 
 import java.io.Serializable
-
+import kotlinx.android.parcel.Parcelize
+import android.os.Parcelable
 
 val physics = Quiz(title="Physics",
 desc = "Because Physics!",
@@ -63,7 +64,8 @@ questions = arrayOf(
 )
 )
 
+@Parcelize
+class Quiz (var title:String, var desc: String, var questions : Array<Question>) : Parcelable
 
-class Quiz (val title:String, val desc: String, val questions : Array<Question>) : Serializable
-
-class Question(val text: String, val answers: Array<String>, val answer: Int) : Serializable
+@Parcelize
+class Question(val text: String, val answers: Array<String>, val answer: Int) : Parcelable

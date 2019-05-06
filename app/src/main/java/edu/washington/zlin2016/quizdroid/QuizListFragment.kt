@@ -15,6 +15,9 @@ class QuizListFragment : Fragment() {
 
     private val quizes = arrayOf(marvel, math, physics)
 
+    interface OnQuizSelectedListener{
+        fun OnQuizSelected(quiz:Quiz)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -27,11 +30,13 @@ class QuizListFragment : Fragment() {
         quizRecyclerView.adapter = adapter
         quizRecyclerView.setHasFixedSize(true)
 
-//        adapter.onQuizClickedListener = { position, name ->
+
+        adapter.onQuizClickedListener = { position, _ ->
+            (activity as OnQuizSelectedListener).OnQuizSelected(quizes[position])
 //            val intent = Intent(this, QuizIntroActivity::class.java)
 //            intent.putExtra("quiz", quizes[position])
 //            startActivity(intent)
-//        }
+        }
 
 
         return rootView
