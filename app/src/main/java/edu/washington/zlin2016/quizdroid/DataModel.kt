@@ -3,6 +3,29 @@ package edu.washington.zlin2016.quizdroid
 import kotlinx.android.parcel.Parcelize
 import android.os.Parcelable
 
+
+class Data : TopicRepository {
+
+
+    var quizes = ArrayList<Quiz>()
+
+    override fun getQuizes(): Array<Quiz> {
+        var arr = arrayOfNulls<Quiz>(quizes.size)
+        return quizes.toArray(arr)
+    }
+
+    override fun add(quiz: Quiz) {
+        quizes.add(quiz)
+    }
+
+    fun loadData() : Array<Quiz>{
+        quizes.add(physics)
+        quizes.add(math)
+        quizes.add(marvel)
+        return getQuizes()
+    }
+}
+
 val physics = Quiz(title="Physics",
 desc = "Because Physics!",
 questions = arrayOf(
