@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(){
-    private val quizes = QuizApp.getSingletonInstance().data.loadData()
+    private val quizes = QuizApp.getSingletonInstance().data.getQuizes()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

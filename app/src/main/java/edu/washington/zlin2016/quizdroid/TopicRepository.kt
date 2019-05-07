@@ -4,7 +4,6 @@ package edu.washington.zlin2016.quizdroid
 
 class Data : TopicRepository {
 
-
     var quizes = ArrayList<Quiz>()
 
     override fun getQuizes(): Array<Quiz> {
@@ -16,11 +15,10 @@ class Data : TopicRepository {
         quizes.add(quiz)
     }
 
-    fun loadData() : Array<Quiz>{
+    fun loadData() {
         quizes.add(physics)
         quizes.add(math)
         quizes.add(marvel)
-        return getQuizes()
     }
 }
 

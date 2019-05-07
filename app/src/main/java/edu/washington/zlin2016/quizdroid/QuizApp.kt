@@ -6,16 +6,22 @@ import android.util.Log
 
 class QuizApp : Application() {
 
-    val data = Data()
+    var data = Data()
+
+    init {
+        this.data.loadData()
+    }
+
 
     override fun onCreate() {
         super.onCreate()
-
         Log.i("Applciation", "QuizApp was loaded successfully.")
     }
 
     companion object{
         private var INSTANCE: QuizApp? = null
+
+
 
         fun getSingletonInstance(): QuizApp {
             if(INSTANCE == null){
