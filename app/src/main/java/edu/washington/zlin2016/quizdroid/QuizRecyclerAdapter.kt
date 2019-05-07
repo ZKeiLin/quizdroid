@@ -18,12 +18,13 @@ class QuizRecyclerAdapter(var quizes:Array<Quiz>) : RecyclerView.Adapter<QuizRec
     override fun getItemCount(): Int = quizes.size
 
     override fun onBindViewHolder(viewHolder: QuizViewHolder, position: Int) {
-        viewHolder.bindView(quizes[position].title, position)
+        viewHolder.bindView(quizes[position].title, quizes[position].short, position)
     }
 
     inner class QuizViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindView(personName: String, position: Int) {
+        fun bindView(personName: String, short:String, position: Int) {
             itemView.quizName.text = personName
+            itemView.shortDes.text = short
             itemView.setOnClickListener { onQuizClickedListener?.invoke(position, personName) }
         }
     }
